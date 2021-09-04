@@ -1,0 +1,23 @@
+{
+	"name": "vue-draggability",
+	"version": "0.1.0",
+	"description": "A minimalist zero-dependency draggability library for Vue 3 composition API.",
+	"keywords": [
+		"drag",
+		"draggable",
+		"vue",
+		"vuejs"
+	],
+	"homepage": "https://github.com/octoman90/vue-draggability",
+	"bugs": {
+		"url": "https://github.com/octoman90/vue-draggability/issues",
+		"email": "man90@tuta.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/octoman90/vue-draggability.git"
+	},
+	"main": "index.js",
+	"author": "man90 <man90@tuta.io> (https://github.com/octoman90)",
+	"license": "MIT"
+}
