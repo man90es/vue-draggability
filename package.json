@@ -18,6 +18,7 @@
 		"url": "https://github.com/octoman90/vue-draggability.git"
 	},
 	"main": "index.js",
+	"files": [],
 	"author": "man90 <man90@tuta.io> (https://github.com/octoman90)",
 	"license": "MIT"
 }
