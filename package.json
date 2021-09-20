@@ -18,7 +18,18 @@
 		"url": "https://github.com/octoman90/vue-draggability.git"
 	},
 	"main": "index.js",
-	"files": [],
+	"typings": "index.d.ts",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"scripts": {
+		"build": "tsc; uglifyjs index.js -mo index.js"
+	},
 	"author": "man90 <man90@tuta.io> (https://github.com/octoman90)",
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^4.4.3",
+		"uglify-js": "^3.14.2"
+	}
 }

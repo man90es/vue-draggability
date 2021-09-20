@@ -1,9 +1,13 @@
-export function useDraggability(dragElement, dragHandle = dragElement) {
-	let position = [null, null]
-	let cursorPosition = [null, null]
+type vueRef = {
+	value: any
+}
 
-	function mouseDownHandler(event) {
-		if (position.includes(null)) {
+export function useDraggability(dragElement: vueRef, dragHandle = dragElement) {
+	let position: [number?, number?] = [undefined, undefined]
+	let cursorPosition: [number?, number?] = [undefined, undefined]
+
+	function mouseDownHandler(event: MouseEvent) {
+		if (position.includes(undefined)) {
 			const computedStyle = getComputedStyle(dragElement.value)
 
 			position = [
@@ -17,21 +21,21 @@ export function useDraggability(dragElement, dragHandle = dragElement) {
 		document.addEventListener("mouseup", mouseUpHandler)
 	}
 
-	function mouseUpHandler(event) {
+	function mouseUpHandler() {
 		document.removeEventListener("mousemove", dragHandler)
 		document.removeEventListener("mouseup", mouseUpHandler)
 	}
 
-	function dragHandler(event) {
+	function dragHandler(event: MouseEvent) {
 		position = [
-			position[0] + event.clientX - cursorPosition[0],
-			position[1] + event.clientY - cursorPosition[1],
+			(position[0] || 0) + event.clientX - (cursorPosition[0] || 0),
+			(position[1] || 0) + event.clientY - (cursorPosition[1] || 0),
 		]
 
 		const computedStyle = getComputedStyle(dragElement.value)
 		const transform = [
-			position[0] - parseInt(computedStyle.getPropertyValue("left")),
-			position[1] - parseInt(computedStyle.getPropertyValue("top")),
+			(position[0] || 0) - parseInt(computedStyle.getPropertyValue("left")),
+			(position[1] || 0) - parseInt(computedStyle.getPropertyValue("top")),
 		]
 		dragElement.value.style.transform = `translate(${transform[0]}px, ${transform[1]}px)`
 
@@ -42,8 +46,8 @@ export function useDraggability(dragElement, dragHandle = dragElement) {
 
 	return {
 		reset: () => {
-			position = [null, null]
-			cursorPosition = [null, null]
+			position = [undefined, undefined]
+			cursorPosition = [undefined, undefined]
 			delete dragElement.value.style.transform
 		}
 	}
